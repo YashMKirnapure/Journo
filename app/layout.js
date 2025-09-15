@@ -1,5 +1,6 @@
 import { Rubik } from "next/font/google";
 import "./globals.css";
+import { ClerkProvider } from "@clerk/nextjs";
 
 const rubik = Rubik({
   weight: '400',
@@ -13,6 +14,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
+    <ClerkProvider>
     <html lang="en">
       <body
         className={`${rubik.className} antialiased`}
@@ -23,8 +25,8 @@ export default function RootLayout({ children }) {
         <main className="min-h-screen">
           {children}
         </main>
-
       </body>
     </html>
+    </ClerkProvider>
   );
 }
